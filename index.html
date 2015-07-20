@@ -1,32 +1,82 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Web Accessibility Bookmarklets</title>
-    <meta charset="utf-8"/>
-    <style type="text/css">
-      body, h1, h2, h3, h4, h5, h6, p, dl, dd, ol, ul {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px;
-      }
-      div#main-content { margin: 24px; }
-      h1 { font-size: 24px; }
-      p  { margin-top: 12px; }
-      ul { margin-left: 20px; }
-      li { margin-top: 12px; }
-    </style>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Accessibility Bookmarklets by brandonbowersox</title>
   </head>
+
   <body>
-    <div id="main-content" role="main">
-      <h1>Web Accessibility Bookmarklets</h1>
-      <p>To install a bookmarklet, drag one of the following links into your browser&apos;s Bookmarks Toolbar.</p>
-      <ul>
-        <li><a href="javascript:(function(baseUrl,src){var done,link,script,head;function createLink(){var el=document.createElement('link');el.rel='stylesheet';el.type='text/css';el.href=baseUrl+'oaa-utils.css';return el}if(typeof window.OAAUtils==='undefined'){done=false;link=createLink();script=document.createElement('script');script.src=baseUrl+'oaa-utils.js';script.onload=script.onreadystatechange=function(){if(!done&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){done=true;initMyBookmarklet()}};head=document.getElementsByTagName('head')[0];head.appendChild(script);head.appendChild(link)}else{initMyBookmarklet()}function initMyBookmarklet(){var el=document.createElement('script');el.setAttribute('src',baseUrl+src);document.body.appendChild(el)}})('http://localhost/bookmarklets/','forms.js');">Forms</a></li>
-        <li><a href="javascript:(function(baseUrl,src){var done,link,script,head;function createLink(){var el=document.createElement('link');el.rel='stylesheet';el.type='text/css';el.href=baseUrl+'oaa-utils.css';return el}if(typeof window.OAAUtils==='undefined'){done=false;link=createLink();script=document.createElement('script');script.src=baseUrl+'oaa-utils.js';script.onload=script.onreadystatechange=function(){if(!done&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){done=true;initMyBookmarklet()}};head=document.getElementsByTagName('head')[0];head.appendChild(script);head.appendChild(link)}else{initMyBookmarklet()}function initMyBookmarklet(){var el=document.createElement('script');el.setAttribute('src',baseUrl+src);document.body.appendChild(el)}})('http://localhost/bookmarklets/','headings.js');">Headings</a></li>
-        <li><a href="javascript:(function(baseUrl,src){var done,link,script,head;function createLink(){var el=document.createElement('link');el.rel='stylesheet';el.type='text/css';el.href=baseUrl+'oaa-utils.css';return el}if(typeof window.OAAUtils==='undefined'){done=false;link=createLink();script=document.createElement('script');script.src=baseUrl+'oaa-utils.js';script.onload=script.onreadystatechange=function(){if(!done&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){done=true;initMyBookmarklet()}};head=document.getElementsByTagName('head')[0];head.appendChild(script);head.appendChild(link)}else{initMyBookmarklet()}function initMyBookmarklet(){var el=document.createElement('script');el.setAttribute('src',baseUrl+src);document.body.appendChild(el)}})('https://raw.githubusercontent.com/brandonbowersox/bookmarklets/master/','landmarks.js');">Landmarks</a></li>
-      </ul>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Accessibility Bookmarklets</h1>
+          <h2>Highlight accessibility features of web pages</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/brandonbowersox/bookmarklets/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/brandonbowersox/bookmarklets/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/brandonbowersox/bookmarklets" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="bookmarklets" class="anchor" href="#bookmarklets" aria-hidden="true"><span class="octicon octicon-link"></span></a>bookmarklets</h1>
+
+<p>Highlight classes of elements on a web page that relate to accessibility
+requirements, including:</p>
+
+<ul>
+<li>Forms</li>
+<li>Headings</li>
+<li>Landmarks</li>
+</ul>
+
+<p>Instructions for using the web accessibility bookmarklets:</p>
+
+<ul>
+<li>An outlined area (e.g., a heading outline with label 'h2') is referred
+to as an overlay. It has the same geometry as the element it outlines.</li>
+<li>Hovering over the label of an overlay (the solid-color rectangle in the
+top-right corner) will display a tooltip with information on the
+underlying element's type, label, text content or accessible name.</li>
+<li>You can move an overlay with mouse drag-and-drop using its label as the
+drag handle.</li>
+<li>After moving an overlay, double clicking its label will move the overlay
+back to its original position.</li>
+<li>The last overlay that was clicked or moved has the highest z-index of all
+overlays. Thus if the label of one overlay is partially obscured by the
+label of another, clicking the partially obscured label will expose the
+entire label.</li>
+<li>In some cases, one overlay may completely obscure another, hiding even
+the label of the other overlay. We plan to address this issue by adding
+page-level information that indicates how many overlays of each type
+were found on the page.</li>
+</ul>
+
+<p>Note: A bookmarklet is a JavaScript snippet that can be run within a web
+browser and that typically performs an action related to the currently
+loaded web page.</p>
+        </section>
+
+        <footer>
+          Accessibility Bookmarklets is maintained by <a href="https://github.com/brandonbowersox">brandonbowersox</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
   </body>
 </html>
